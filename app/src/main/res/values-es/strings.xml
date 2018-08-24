@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Entrada de usuario</string>
+    <string name="counter_label">Contador</string>
+</resources>
