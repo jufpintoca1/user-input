@@ -1,5 +1,6 @@
 package co.edu.intecap.userinput;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -18,8 +19,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         txtCountValue.setText(String.valueOf(0));
 
         //se asigna un click listener a nuestro boton
-        Button clickButton = findViewById(R.id.button2);
+        Button clickButton = findViewById(R.id.btn_tap);
         clickButton.setOnClickListener(this);
+        Button screenButton = findViewById(R.id.btn_screen);
+        screenButton.setOnClickListener(this);
     }
 
 
@@ -35,9 +38,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        Toast.makeText(this, "CLICK!!!", Toast.LENGTH_SHORT).show();
-        mCounter++;
-        txtCountValue.setText(String.valueOf((mCounter)));
+        switch (v.getId()) {
+            case R.id.btn_tap:
+                Toast.makeText(this, "CLICK!!!", Toast.LENGTH_SHORT).show();
+                mCounter++;
+                txtCountValue.setText(String.valueOf((mCounter)));
+                break;
+            case R.id.btn_screen:
+                Intent intent = new Intent(this, SaludoActivity.class);
+                startActivity(intent);
+                break;
+        }
     }
 
 
